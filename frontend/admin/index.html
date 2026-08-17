@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FoodFlow — Admin</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+  <div class="topbar">
+    <div class="brand"><span class="logo-badge">🛡️</span> FoodFlow</div>
+    <div class="topbar-right">
+      <span class="pill-role">Admin</span>
+      <div class="avatar-circle" id="avatarInitials">?</div>
+      <button class="btn btn-ghost btn-sm" onclick="logout()">Log out</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <div>
+        <h1>Delivery partner verification</h1>
+        <p>Review submitted documents and approve or reject delivery partners.</p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" id="tabPending" onclick="showTab('pending')">Pending review <span class="tab-badge" id="pendingCount">0</span></button>
+      <button class="tab-btn" id="tabAll" onclick="showTab('all')">All partners</button>
+    </div>
+
+    <div id="pendingView"><div class="loading-spin"></div></div>
+    <div id="allView" style="display:none;"><div class="loading-spin"></div></div>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/admin/app.js"></script>
+</body>
+</html>
