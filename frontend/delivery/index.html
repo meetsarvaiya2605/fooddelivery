@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FoodFlow — Delivery Partner</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+  <div class="topbar">
+    <div class="brand"><span class="logo-badge">🛵</span> FoodFlow</div>
+    <div class="topbar-right">
+      <div class="online-toggle-wrap" id="onlineToggleWrap" style="display:none;">
+        <span class="small" id="onlineLabel">Offline</span>
+        <label class="switch">
+          <input type="checkbox" id="onlineToggle" onchange="toggleOnline()" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <span class="pill-role">Delivery</span>
+      <div class="avatar-circle" id="avatarInitials">?</div>
+      <button class="btn btn-ghost btn-sm" onclick="logout()">Log out</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <div>
+        <h1 id="greeting">Ready to ride?</h1>
+        <p>Pick up available orders and manage your deliveries.</p>
+      </div>
+    </div>
+
+    <!-- Verification status banner (shown until approved) -->
+    <div id="verifyBanner" style="display:none;"></div>
+
+    <div id="mainTabs" class="tabs" style="display:none;">
+      <button class="tab-btn active" id="tabAvailable" onclick="showTab('available')">Available Orders <span class="tab-badge" id="availableCount">0</span></button>
+      <button class="tab-btn" id="tabActive" onclick="showTab('active')">Active Deliveries <span class="tab-badge" id="activeCount">0</span></button>
+      <button class="tab-btn" id="tabHistory" onclick="showTab('history')">History</button>
+      <button class="tab-btn" id="tabEarnings" onclick="showTab('earnings')">Earnings</button>
+      <button class="tab-btn" id="tabKyc" onclick="showTab('kyc')">My Documents</button>
+    </div>
+
+    <div id="availableView" style="display:none;"><div class="loading-spin"></div></div>
+    <div id="activeView" style="display:none;"><div class="loading-spin"></div></div>
+    <div id="historyView" style="display:none;"><div class="loading-spin"></div></div>
+    <div id="earningsView" style="display:none;"><div class="loading-spin"></div></div>
+    <div id="kycView" style="display:none;"><div class="loading-spin"></div></div>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/delivery/app.js"></script>
+</body>
+</html>
